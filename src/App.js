@@ -7,21 +7,21 @@ function App() {
         {
             id: 0,
             text: 'Touch grass',
-            day: 'Jan 1, 2023 at 13:00',
+            date: 'Jan 1, 2023 at 13:00',
             reminder: true
         },
 
         {
             id: 1,
             text: 'Feed cat',
-            day: 'Jan 2, 2023 at 13:00',
+            date: 'Jan 2, 2023 at 13:00',
             reminder: true
         },
 
         {
             id: 2,
             text: 'Wash socks',
-            day: 'Jan 3, 2023 at 13:00',
+            date: 'Jan 3, 2023 at 13:00',
             reminder: true
         }
     ])
