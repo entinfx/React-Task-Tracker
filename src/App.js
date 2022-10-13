@@ -4,6 +4,8 @@ import { useState } from 'react'
 import AddTask from './components/AddTask'
 
 function App() {
+    const [showAddTask, setShowAddTask] = useState(false)
+
     const [tasks, setTasks] = useState([
         {
             id: 0,
@@ -32,7 +34,16 @@ function App() {
     //
     // setTasks([...])
 
-    // Delete task function
+    const toggleAddTask = () => {
+        setShowAddTask(!showAddTask)
+    }
+
+    const addTask = (task) => {
+        const id = tasks.length
+        const newTask = {id, ...task}
+        setTasks([...tasks, newTask])
+    }
+
     const deleteTask = (id) => {
         setTasks(tasks.filter((task) => task.id !== id))
     }
@@ -45,8 +56,8 @@ function App() {
 
     return (
         <div className="container">
-            <Header />
-            <AddTask />
+            <Header showAddTask={showAddTask} onButtonClick={toggleAddTask}/>
+            {showAddTask ? <AddTask onAdd={addTask} /> : ''}
             <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
         </div>
     )
